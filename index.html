@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- 
+      Main Author: Christina  - https://github.com/codercreative
+      Adjustments:  Cassie - https://github.com/casserole27
+      Minor Adjustments: Josue R. - https://github.com/Rapidisimo
+     -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Restaurant Ordering App</title>
+
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" 
+    integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!--CSS STYLESHEET-->
+    <link rel="stylesheet" href="index.css" />
+  
+  </head>
+
+  <body>
+  
+    <header>
+      <img src="./images/header.png" 
+        alt="Image of a hamburger with the words Jimmy's Diner, the best burgers and pizzas in town" />
+    </header>
+    
+    <main>
+      
+      <section class="menu-container" id="menu-container">
+     
+      </section>
+
+      <h3 class="discount-info">Buy two or more items, get 15% off your order!</h3>
+
+      <section class="order-container hidden">
+    
+        <h2>Your Order</h2>
+      
+        <div id="order-summary">
+          <p>Pizza</p> 
+          <p>$14</p>
+        </div>
+        
+        <div class="discount-modal hidden" id="discount-modal">
+          <p class="discount">Discount</p>
+          <p class="discount" id="discount"></p>
+        </div>
+
+        <div class="total-price">
+          <p>Total price:</p>
+          <p id="total">$$$</p>
+        </div>
+
+        <button id="complete-btn">Complete order</button>
+      
+      </section>
+
+      <section class="payment-modal hidden" id="payment-modal">
+      
+        <div class="close-btn-container">
+          <button class="close-btn" id="close-btn">X</button>
+        </div>
+      
+        <div class="inner-payment-modal">
+          <h2>Enter card details</h2>
+          <form>
+            <input
+              type="text"
+              id="customer-name"
+              name="customer-name"
+              placeholder="Enter your name"
+              aria-label="customer-name"
+              required
+            />
+            <input
+              type="number"
+              id="card-number"
+              name="card-number"
+              placeholder="Enter card number"
+              aria-label="card-number"
+              required
+            />
+            <input
+              type="number"
+              id="cvv"
+              name="cvv"
+              placeholder="Enter CVV"
+              aria-label="cvv"
+              required
+            />
+            <button type="submit" class="order-btn" id="pay-btn">Pay</button>
+          </form>
+        </div>
+      
+      </section>
+
+      <section class="thank-you-modal hidden" id="thank-you-modal">
+
+      </section>
+      
+      <section class="rating-modal hidden" id="rating-modal">
+    
+        <p class="feedback">Your feedback is important to us,</p>
+        <p class="feedback">please rate your experience.</p>
+        
+        <button class="rating-star fa-regular fa-star fa-lg"
+          aria-label="one star rating"></button>
+        <button class="rating-star fa-regular fa-star fa-lg"
+          aria-label="two star rating"></button>
+        <button class="rating-star fa-regular fa-star fa-lg"
+          aria-label="three star rating"></button>
+        <button class="rating-star fa-regular fa-star fa-lg"
+          aria-label="four star rating"></button>
+        <button class="rating-star fa-regular fa-star fa-lg"
+          aria-label="five star rating"></button>
+        
+        <button class="new-order-btn" id="new-order-btn">New Order</button> 
+
+      </section>
+    
+      </main>
+
+    <script src="index.js" type="module"></script>
+  </body>
+
+</html>
+

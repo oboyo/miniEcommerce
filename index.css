@@ -1,0 +1,382 @@
+/* 
+Main Author: Josue R. - https://github.com/Rapidisimo
+Additional Code: Cassie L. - https://github.com/casserole27
+Organization & Refining: Cassie L. https://github.com/casserole27
+*/
+
+/* Font from figma mockup */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;500&family=Smythe&display=swap');
+
+/****** VARIABLES ******/
+
+:root {
+    
+     /*BORDER RADIUS*/
+    --br-soft: 1rem;
+    --br-round: 50%;
+    --br-reg: 5px;
+    
+    /*FONT SIZES*/
+    --fs-xs: 1rem;
+    --fs-s: 1.25rem;
+    --fs-m: 1.5rem;
+    --fs-ml: 2rem;
+    --fs-l: 2.25rem;
+    --fs-title: 2.5rem;
+
+    /*FONT COLORS*/
+    --fc-h: hsl(0, 0%, 15%);
+    --fc-p: hsl(0, 0%, 45%);
+
+}
+
+/****** MARGIN AND PADDING RESET ******/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Smythe', cursive;
+}
+
+
+/******* Layout *******/
+
+body {
+    letter-spacing: .15rem;
+    background-color: whitesmoke;
+}
+
+header img {
+    width: 100%;
+    border-bottom-left-radius: var(--br-reg);
+    border-bottom-right-radius: var(--br-reg);
+}
+
+main {
+    max-width: 600px;
+    min-width: 320px;
+    background-color: white;
+    padding: 1rem 1.4rem 1rem;
+    border-bottom-left-radius: var(--br-reg);
+    border-bottom-right-radius: var(--br-reg);
+}
+
+.menu-item {
+    display: grid;
+    grid-template-columns: 70% 15% 15%;
+    margin-bottom: 1rem;
+    padding-bottom: .2em;
+    border-bottom: 1px solid hsl(0, 0%, 82%);
+}
+
+.menu-item-details {
+    grid-column: 1 / 2;
+    display: grid;
+    grid-template-columns: 20% 1fr;
+}
+
+.menu-item-emoji {
+    align-self: start;
+    justify-self: center;
+    font-size: 3rem;
+    margin-right: 1rem;
+}
+
+.menu-item-price {
+    color: var(--fc-h);
+}
+
+.add-btn,
+.remove-btn {
+    border-radius: var(--br-round);
+    font-size: var(--fs-xs);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: hsl(0, 0%, 45%);
+    font-weight: 100;
+    width: 2rem;
+    height: 2rem;
+    text-align: center;
+    place-self: center;
+    border: 1px solid rgb(187, 187, 187);
+    background-color: transparent;
+}
+
+.add-btn:hover {
+    border: 2px solid hsl(110, 36%, 51%);
+}
+.remove-btn:hover {
+    border: 2px solid hsl(0, 58%, 51%);
+}
+
+.order-container h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.item-category {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    justify-content: space-between;
+    padding-bottom: .4rem;
+}
+
+.item-info {
+    display: flex;
+    gap: 1rem;
+}
+
+.order-container div p {
+    color: var(--fc-h);
+    padding: .2rem;
+    margin: 0;
+}
+
+.remove-all-btn {
+    background-color: transparent;
+    color: hsl(0, 0%, 37%);
+    margin-right: auto;
+    font-size: .8rem;
+}
+
+.remove-all-btn:hover {
+    color: hsl(0, 58%, 51%);
+}
+
+.total-price {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid black;
+}
+
+.order-container #complete-btn,
+.inner-payment-modal .order-btn,
+.new-order-btn {
+    background-color: hsl(160, 82%, 47%);
+    color: white;
+    width: 100%;
+    text-align: center;
+    padding: .8rem 0 .8rem;
+    margin: 1.3rem 0rem .5rem;
+    font-size: var(--fs-xs);
+
+    /*TODO Cassie added */
+    font-weight: 700; 
+    letter-spacing: .1rem; 
+    border: none;
+    border-radius: var(--br-reg);
+}
+
+.order-container #complete-btn:hover,
+.inner-payment-modal .order-btn:hover {
+    color: white;
+    text-shadow: 1px 1px 1px rgb(99, 99, 99);
+    font-size: var(--fs-xs);
+}
+
+
+
+/******* Payment Modal *******/ /*Cassie added*/
+
+.payment-modal {
+    max-width: 525px;
+    width: 90%;
+    height: 525px;
+    background-color: white;
+    position: fixed;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    padding: 1em;
+    margin: auto;
+    box-shadow: 0 20px 150px 150px gray;
+}
+
+.close-btn-container{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.close-btn {
+    font-family: inherit;
+    padding: .6rem .8rem .6rem;
+    border-radius: var(--br-reg);
+    background-color: rgb(197, 189, 189);
+    border: 1px solid gray;
+}
+
+.inner-payment-modal h2 {
+    font-size: var(--fs-m);
+    text-align: center;
+    margin-bottom: 1.6rem;
+}
+
+.inner-payment-modal form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .4rem;
+}
+
+input {
+    width: 100%; 
+    font-size: var(--fs-s);
+    color: rgba(117, 117, 117, 1); 
+    padding: 1em;
+    margin-bottom: 1em;
+    border: 1.2px solid rgb(156, 156, 156);
+    border-radius: var(--br-reg);
+}
+
+
+/****** Discount Modal ******/ /*Cassie added*/
+
+.discount-info {
+    color: hsl(160, 77%, 36%);
+    font-size: var(--fs-m);
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.discount-modal {
+    background-color: lightyellow;
+    margin: 1rem 0;
+    padding: .5rem .25rem;
+    border: 2px solid lightgray;
+    border-radius: var(--br-reg);
+
+    display: flex;
+    justify-content: space-between;
+}
+
+
+/******* Thank You Message and Star Rating *******/ /*Cassie added*/
+
+.thank-you-modal,
+.rating-modal {
+    padding: 1.8rem 1.8rem .5rem 1.8rem;
+    background-color: hsl(152, 81%, 96%);
+    letter-spacing: .15rem; 
+    color: hsl(163, 88%, 20%);
+    text-align: center;
+    margin: 0 auto;
+    border-radius: 5px;
+}
+
+.rating-modal {
+    padding-bottom: 2rem;
+}
+
+.message,
+.feedback {
+    margin: 0;
+    margin-bottom: .5rem;
+}
+  
+.message {
+    font-size: var(--fs-ml);
+    font-weight: 600;
+}
+  
+.feedback {
+    font-size: 1.25rem;
+}
+  
+.rating-star {
+    border: none;
+    background-color: hsl(152, 81%, 96%);
+    cursor: pointer;
+    color: rgb(255, 208, 0);
+    padding: 2rem 0;
+}
+
+/******* Misc *******/
+
+h1,
+h2,
+h3,
+h4 {
+    color: var(--fc-h);
+}
+
+p {
+    font-size: var(--fs-xs);
+    color: var(--fc-p);
+    margin-bottom: .4rem;
+}
+
+.hidden {
+    display: none;
+}
+
+input,
+button,
+.order-container button,
+.order-btn,
+.inner-payment-modal h2 {
+    font-family: 'Roboto', sans-serif;
+}
+
+
+button {
+    background-color: gray;
+    border: none;
+    margin: 0;
+    padding: 0;
+    text-align: inherit;
+    font: inherit;
+    border-radius: 0;
+    appearance: none;
+    cursor: pointer;
+}
+
+button:focus { /*Cassie added*/
+    transform: scale(0.90);
+}
+
+@media (min-width: 600px) {
+    header {
+        display: flex;
+        justify-content: center;
+    }
+    header img {
+        max-width: 600px;
+    }
+    main {
+        margin: 0 auto;
+    }
+    .add-btn,
+    .remove-btn {
+        border-radius: var(--br-round);
+        font-size: var(--fs-s);
+        width: 2.8rem;
+        height: 2.8rem;
+    }
+
+    p {
+        font-size: var(--fs-s);
+    }
+
+    .menu-item {
+        grid-template-columns: 80% 10% 10%;
+    }
+    
+}
+
+/****** REMOVE NUMBER SPINNER FROM INPUTS ******/ /*Cassie added*/
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+
